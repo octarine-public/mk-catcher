@@ -1,4 +1,4 @@
-import { EntityManager, EventsSDK, GameState, item_blink, LocalPlayer, Menu, monkey_king_tree_dance, ParticleAttachment_t, ParticlesSDK, TickSleeper, Vector3 } from "wrapper/Imports"
+import { EntityManager, EventsSDK, GameState, item_blink, LocalPlayer, Menu, monkey_king_tree_dance, ParticleAttachment_t, ParticlesSDK, TickSleeper, Vector3 } from "github.com/octarine-public/wrapper/wrapper/Imports"
 
 const particles = new ParticlesSDK(),
 	Sleeper = new TickSleeper()
