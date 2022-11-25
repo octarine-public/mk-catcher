@@ -21,7 +21,7 @@
 		"../../../**/*.d.ts"
 	],
 	"exclude": [
-		"wrapper_autogen/**/*",
+		"../../octarine-web/*",
 		"node_modules/**/*",
 		"scripts_files/**/*"
 	],
