@@ -47,8 +47,9 @@ EventsSDK.on("PostDataUpdate", () => {
 		MyHero.IsAlive &&
 		!MyHero.IsStunned &&
 		!MyHero.IsInvulnerable &&
-		(!MyHero.IsInvisible || MyHero.IsVisibleForEnemies) &&
+		!MyHero.IsInvisible &&
 		!Sleeper.Sleeping
+		
 	EntityManager.GetEntitiesByClass(monkey_king_tree_dance).some(abil => {
 		if (abil.TargetTree === undefined || !abil.TargetTree.IsAlive) {
 			particles.DestroyByKey(abil)
