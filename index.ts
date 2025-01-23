@@ -36,13 +36,15 @@ const MKHateItemsState = MKHateTree.AddImageSelector(
 	])
 )
 
-EventsSDK.on("PostDataUpdate", () => {
+EventsSDK.on("PostDataUpdate", delta => {
 	const MyHero = LocalPlayer?.Hero
 	if (!MKHateState.value || MyHero === undefined) {
 		particles.DestroyAll()
 		return
 	}
-
+	if (delta === 0) {
+		return
+	}
 	const CanCast =
 		MyHero.IsAlive &&
 		!MyHero.IsStunned &&
@@ -77,7 +79,8 @@ EventsSDK.on("PostDataUpdate", () => {
 			return false
 		}
 
-		const castTime = 100 + MyHero.TurnTime(tree.Position) * 1000 + GameState.Ping
+		const lag = GameState.InputLag + GameState.IOLag
+		const castTime = (MyHero.GetTurnTime(tree.Position) + lag) * 1000
 		return MKHateItemsState.values.some(value => {
 			if (!MKHateItemsState.IsEnabled(value)) {
 				return false
